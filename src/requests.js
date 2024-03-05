@@ -14,4 +14,11 @@ const createAnecdote = (newAnecdote) => {
     .then(res => res.data)
 }
 
-export { getAnecdotes, createAnecdote }
+const increaseVote = (anecdote) => {
+  console.log(anecdote)
+  return axios
+    .put(`${baseUrl}/${anecdote.id}`, {...anecdote, votes: anecdote.votes + 1})
+    .then(res => res.data)
+}
+
+export { getAnecdotes, createAnecdote, increaseVote }
